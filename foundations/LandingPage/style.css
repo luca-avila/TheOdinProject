@@ -1,1 +1,110 @@
+:root {
+    --color-dark: #1F2937;
+    --color-light: #F9FAF8;
+    --color-grey: #E5E7EB;
+}
 
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*--- General colors and backgrounds ---*/
+footer, .hero-wrapper {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
+.cards, .signup {
+    background-color: var(--color-light);
+}
+
+.quote {
+    background-color: var(--color-grey);
+}
+
+button {
+    background-color: #3882F6;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+}
+/*--- Components ---*/
+
+h2 {
+    color: #1f2937;
+    font-weight: 900;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.hero p, .header-links {
+    font-size: 18px;
+    color: var(--color-grey);
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--color-light);
+}
+
+ul {
+    list-style: none;
+}
+
+/*--- Structure ---*/
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+}
+
+.hero-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 140px 150px;
+}
+
+.hero {
+    display: flex;
+    margin-top: 70px;
+}
+
+.hero div {
+    flex: 1;
+}
+
+h1 {
+    width: 350px;
+    margin: 15px 0px;
+}
+
+.hero-content{
+    margin-right: 20px;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
