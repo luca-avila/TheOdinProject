@@ -210,3 +210,12 @@ cite {
     justify-content: center;
     align-items: flex-start;
 }
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px;
+}
