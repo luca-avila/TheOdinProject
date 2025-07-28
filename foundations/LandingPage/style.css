@@ -24,6 +24,9 @@ footer, .hero-wrapper {
 
 .quote {
     background-color: var(--color-grey);
+    font-size: 36px;
+    font-style: italic;
+    color: var(--color-dark);
 }
 
 button {
@@ -79,6 +82,7 @@ figcaption {
 
 /*--- Structure ---*/
 
+/* HEADER */
 header {
     display: flex;
     align-items: center;
@@ -121,6 +125,7 @@ h1 {
     background-color: grey;
 }
 
+/* CARDS */
 .cards {
     display: flex;
     flex-direction: column;
@@ -145,4 +150,21 @@ figure {
 
 .card {
     width: 200px;
+}
+
+/* QUOTE */
+
+.quote-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 100px 200px;
+}
+
+blockquote {
+    margin: 0px;
+}
+
+cite {
+    font-weight: bold;
 }
