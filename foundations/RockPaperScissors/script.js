@@ -5,16 +5,29 @@ function getHumanChoice() {
 
     do {
         humanChoice = prompt('Rock, paper or scissors?').toLowerCase();
-    } while (!options.includes(humanChoice));
+    } while (!OPTIONS.includes(humanChoice));
 
     return humanChoice;
 }
 
-// Get computer choice
 function getComputerChoice() {
     let num = Math.floor(Math.random() * 3);
     return OPTIONS[num];
 }
 
-// Play one round
-// Play five rounds
+function getWinner(humanChoice, computerChoice) {
+
+    const winConditions = {
+        'rock': 'scissors',
+        'paper': 'rock', 
+        'scissors': 'paper'
+    };
+    
+    if (humanChoice === computerChoice) {
+        return 'It\'s a tie!';
+    } else if (winConditions[humanChoice] === computerChoice) {
+        return 'Human wins!';
+    } else {
+        return 'Computer wins!';
+    }
+}
