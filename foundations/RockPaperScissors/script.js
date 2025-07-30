@@ -15,19 +15,45 @@ function getComputerChoice() {
     return OPTIONS[num];
 }
 
-function getWinner(humanChoice, computerChoice) {
-
+function whoBeats(choice1, choice2) {
     const winConditions = {
         'rock': 'scissors',
         'paper': 'rock', 
         'scissors': 'paper'
     };
     
-    if (humanChoice === computerChoice) {
+    if (choice1 === choice2) {
+        return 'Tie';
+    } else if (winConditions[choice1] === choice2) {
+        return choice1;
+    } else {
+        return choice2;
+    }
+}
+
+function getWinner(humanChoice, computerChoice) {
+    const winner = whoBeats(humanChoice, computerChoice);
+
+    if (winner === 'Tie') {
         return 'It\'s a tie!';
-    } else if (winConditions[humanChoice] === computerChoice) {
+    } else if (winner === humanChoice) {
         return 'Human wins!';
     } else {
         return 'Computer wins!';
+    }
+}
+
+function playRound() {
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    const winner = getWinner(humanChoice, computerChoice);
+
+    print(winner);
+    if (winner === 'Human wins!') {
+        print(`${humanChoice} beats ${computerChoice}`);
+    } else if (winner === 'Computer wins!') {
+        print(`${computerChoice} beats ${humanChoice}`);
+    } else {
+        print(`${humanChoice} and ${computerChoice} are the same`);
     }
 }
