@@ -48,12 +48,30 @@ function playRound() {
     const computerChoice = getComputerChoice();
     const winner = getWinner(humanChoice, computerChoice);
 
-    print(winner);
+    console.log(winner);
     if (winner === 'Human wins!') {
-        print(`${humanChoice} beats ${computerChoice}`);
+        console.log(`${humanChoice} beats ${computerChoice}`);
+        return 'Human';
     } else if (winner === 'Computer wins!') {
-        print(`${computerChoice} beats ${humanChoice}`);
+        console.log(`${computerChoice} beats ${humanChoice}`);
+        return 'Computer';
     } else {
-        print(`${humanChoice} and ${computerChoice} are the same`);
+        console.log(`${humanChoice} and ${computerChoice} are the same`);
     }
+}
+
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;  
+
+    for (let i = 0; i < 5; i++) {
+        const winner = playRound();
+        if (winner === 'Human') {
+            humanScore++;
+        } else if (winner === 'Computer') {
+            computerScore++;
+        }
+    }
+
+    console.log(`Human: ${humanScore} - Computer: ${computerScore}`);
 }
