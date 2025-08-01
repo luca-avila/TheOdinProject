@@ -35,11 +35,11 @@ function getWinner(humanChoice, computerChoice) {
     const winner = whoBeats(humanChoice, computerChoice);
 
     if (winner === 'Tie') {
-        return 'It\'s a tie!';
+        return 'Tie!';
     } else if (winner === humanChoice) {
-        return 'Human wins!';
+        return 'Human';
     } else {
-        return 'Computer wins!';
+        return 'Computer';
     }
 }
 
@@ -48,15 +48,12 @@ function playRound() {
     const computerChoice = getComputerChoice();
     const winner = getWinner(humanChoice, computerChoice);
 
-    console.log(winner);
-    if (winner === 'Human wins!') {
-        console.log(`${humanChoice} beats ${computerChoice}`);
+    if (winner === 'Human') {
         return 'Human';
-    } else if (winner === 'Computer wins!') {
-        console.log(`${computerChoice} beats ${humanChoice}`);
+    } else if (winner === 'Computer') {
         return 'Computer';
     } else {
-        console.log(`${humanChoice} and ${computerChoice} are the same`);
+        return 'Tie';
     }
 }
 
