@@ -1,4 +1,4 @@
-function createGrid(gridSize) {
+export function createGrid(gridSize) {
     const grid = document.createElement('div');
     grid.classList.add('grid');
 
@@ -10,7 +10,7 @@ function createGrid(gridSize) {
     return grid;
 }
 
-function setSquareSize(container, gridSize, squareAmount, className) {
+export function setSquareSize(container, gridSize, squareAmount, className) {
     const squares = container.querySelectorAll(`.${className}`);
     squares.forEach(square => {
         square.style.width = `calc(${gridSize}px / ${squareAmount})`;
