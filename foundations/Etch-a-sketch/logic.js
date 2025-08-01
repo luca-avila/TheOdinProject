@@ -6,3 +6,11 @@ export function setClickEvent(container) {
         });
     });
 }
+
+export function setStartButtonEvent(form, callback){
+    const startButton = form.querySelector('button');
+    startButton.addEventListener('click', ()=>{
+        const sideLength = form.querySelector('input').value;
+        callback(sideLength);
+    });
+}
