@@ -1,8 +1,20 @@
 import { OPTIONS } from './game.js';
 
 export function displaySelection(humanChoice, computerChoice, selectionNode) {
-    selectionNode.textContent = 
-    `You choose: ${humanChoice}, Computer choose: ${computerChoice}`;
+    selectionNode.innerHTML = '';
+
+    const div = document.createElement('div');
+    div.classList.add('selection');
+
+    const humanSelection = document.createElement('p');
+    humanSelection.textContent = `You choose: ${humanChoice}`
+    div.appendChild(humanSelection);
+
+    const computerSelection = document.createElement('p');
+    computerSelection.textContent = `Computer choose: ${computerChoice}`;
+    div.appendChild(computerSelection);
+
+    selectionNode.appendChild(div);
 }
 
 export function displayResult(result, resultNode) {
@@ -82,15 +94,17 @@ export function playGame() {
     const selection = createSelection();
     const result = createResult();
     const score = createScore();
+    game.appendChild(score);
     game.appendChild(buttons);
     game.appendChild(selection);
     game.appendChild(result);
-    game.appendChild(score);
+    game.classList.add('game');
     return game;
 }
 
 export function finishGame(winner) {
     const div = document.createElement('div');
+    div.classList.add('game-end');
 
     const p = document.createElement('p');
     p.textContent = winner;
