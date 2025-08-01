@@ -1,5 +1,4 @@
-const OPTIONS = ['rock', 'paper', 'scissors'];
-const buttons = document.querySelectorAll('button');
+export const OPTIONS = ['rock', 'paper', 'scissors'];
 
 export function getComputerChoice() {
     let num = Math.floor(Math.random() * 3);
