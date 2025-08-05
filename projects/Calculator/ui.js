@@ -1,47 +1,109 @@
-export function createAddButton() {
+function createAddButton() {
     const button = document.createElement('div');
     button.classList.add('addButton');
     button.textContent = '+';
+
+    return button;
 }
 
-export function createSubstractButton() {
+function createSubstractButton() {
     const button = document.createElement('div');
     button.classList.add('substractButton');
     button.textContent = '-';
+
+    return button;
 }
 
-export function createMultiplyButton() {
+function createMultiplyButton() {
     const button = document.createElement('div');
     button.classList.add('multiplyButton');
     button.textContent = '*';
+
+    return button;
 }
 
-export function createDivideButton() {
+function createDivideButton() {
     const button = document.createElement('div');
     button.classList.add('divideButton');
     button.textContent = '/';
+
+    return button;
 }
 
-export function createEqualButton() {
+function createEqualButton() {
     const button = document.createElement('div');
     button.classList.add('equalButton');
     button.textContent = '=';
+
+    return button;
 }
 
-export function createNumberButton(number) {
+function createNumberButton(number) {
     const button = document.createElement('div');
     button.classList.add('numberButton');
     button.textContent = number;
+
+    return button;
 }
 
-export function createClearButton() {
+function createClearButton() {
     const button = document.createElement('div');
     button.classList.add('clearButton');
     button.textContent = 'C';
+
+    return button;
 }
 
-export function createDeleteButton() {
+function createDeleteButton() {
     const button = document.createElement('div');
     button.classList.add('deleteButton');
     button.textContent = 'DEL';
+
+    return button;
+}
+
+export function createButtons() {
+    const div = document.createElement('div');
+    const operatorsDiv = document.createElement('div');
+    const numsDiv = document.createElement('div');
+
+    operatorsDiv.classList.add('operators');
+    numsDiv.classList.add('nums');
+    div.classList.add('buttons');
+
+    operatorsDiv.appendChild(createAddButton());
+    operatorsDiv.appendChild(createSubstractButton());
+    operatorsDiv.appendChild(createMultiplyButton());
+    operatorsDiv.appendChild(createDivideButton());
+    operatorsDiv.appendChild(createEqualButton());
+
+    for (let i = 0; i < 10; i++) {
+        numsDiv.appendChild(createNumberButton(i));
+    }
+
+    div.appendChild(numsDiv);
+    div.appendChild(operatorsDiv);
+
+    return div;
+}
+
+export function createScreen() {
+    const screen = document.createElement('div');
+    const operand1 = document.createElement('span');
+    const operator = document.createElement('span');
+    const operand2 = document.createElement('span');
+    const result = document.createElement('span');
+
+    screen.classList.add('screen');
+    operand1.classList.add('operand1');
+    operator.classList.add('operator');
+    operand2.classList.add('operand2');
+    result.classList.add('result');
+
+    screen.appendChild(operand1);
+    screen.appendChild(operator);
+    screen.appendChild(operand2);
+    screen.appendChild(result);
+
+    return screen;
 }
