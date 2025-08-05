@@ -31,14 +31,14 @@ export function calculate(n1, n2, operator) {
 
 // Validations
 
-function validateNumbers(n1, n2) {
-    if (typeof n1 !== 'number' || typeof n2 !== 'number') {
+export function validateNumber(number) {
+    if (typeof number !== 'number') {
         return false;
     }
     return true;
 }
 
-function validateOperator(operator) {
+export function validateOperator(operator) {
     if (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/') {
         return false;
     }
@@ -46,7 +46,7 @@ function validateOperator(operator) {
 }
 
 export function validateInput(n1, n2, operator) {
-    if (!validateNumbers(n1, n2) || !validateOperator(operator)) {
+    if (!validateNumber(n1) || !validateNumber(n2) || !validateOperator(operator)) {
         return false;
     }
     return true;

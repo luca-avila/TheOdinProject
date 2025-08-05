@@ -78,7 +78,9 @@ export function createButtons() {
     operatorsDiv.appendChild(createEqualButton());
 
     for (let i = 0; i < 10; i++) {
-        numsDiv.appendChild(createNumberButton(i));
+        const numberButton = createNumberButton(i);
+        numberButton.classList.add('number');
+        numsDiv.appendChild(numberButton);
     }
 
     div.appendChild(numsDiv);
@@ -106,4 +108,18 @@ export function createScreen() {
     screen.appendChild(result);
 
     return screen;
+}
+
+export function addNumber(container, event) {
+    const number = event.target.textContent;
+
+    if (!validateNumber(number)) return 'ERROR';
+
+    if (!operator.textContent) {
+        operand1.textContent += number;
+    } else {
+        operand2.textContent += number;
+    }
+
+
 }
