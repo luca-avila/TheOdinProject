@@ -32,7 +32,8 @@ export function calculate(n1, n2, operator) {
 // Validations
 
 export function validateNumber(number) {
-    if (typeof number !== 'number') {
+    const convertedNumber = Number(number);
+    if (isNaN(convertedNumber)) {
         return false;
     }
     return true;

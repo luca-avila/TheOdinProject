@@ -1,5 +1,5 @@
 function createAddButton() {
-    const button = document.createElement('div');
+    const button = document.createElement('button');
     button.classList.add('addButton');
     button.textContent = '+';
 
@@ -7,7 +7,7 @@ function createAddButton() {
 }
 
 function createSubstractButton() {
-    const button = document.createElement('div');
+    const button = document.createElement('button');
     button.classList.add('substractButton');
     button.textContent = '-';
 
@@ -15,7 +15,7 @@ function createSubstractButton() {
 }
 
 function createMultiplyButton() {
-    const button = document.createElement('div');
+    const button = document.createElement('button');
     button.classList.add('multiplyButton');
     button.textContent = '*';
 
@@ -23,7 +23,7 @@ function createMultiplyButton() {
 }
 
 function createDivideButton() {
-    const button = document.createElement('div');
+    const button = document.createElement('button');
     button.classList.add('divideButton');
     button.textContent = '/';
 
@@ -31,7 +31,7 @@ function createDivideButton() {
 }
 
 function createEqualButton() {
-    const button = document.createElement('div');
+    const button = document.createElement('button');
     button.classList.add('equalButton');
     button.textContent = '=';
 
@@ -39,7 +39,7 @@ function createEqualButton() {
 }
 
 function createNumberButton(number) {
-    const button = document.createElement('div');
+    const button = document.createElement('button');
     button.classList.add('numberButton');
     button.textContent = number;
 
@@ -47,7 +47,7 @@ function createNumberButton(number) {
 }
 
 function createClearButton() {
-    const button = document.createElement('div');
+    const button = document.createElement('button');
     button.classList.add('clearButton');
     button.textContent = 'C';
 
@@ -55,7 +55,7 @@ function createClearButton() {
 }
 
 function createDeleteButton() {
-    const button = document.createElement('div');
+    const button = document.createElement('button');
     button.classList.add('deleteButton');
     button.textContent = 'DEL';
 
@@ -120,6 +120,4 @@ export function addNumber(container, event) {
     } else {
         operand2.textContent += number;
     }
-
-
 }
