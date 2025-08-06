@@ -1,4 +1,4 @@
-import { validateNumber, validateOperator } from './logic.js';
+import { validateNumber, validateOperator, calculate } from './logic.js';
 
 
 function createAddButton() {
@@ -143,6 +143,12 @@ export function addOperator(screen, event) {
     if (!validateOperator(operator)) return 'ERROR';
     screen.operatorNode.textContent = operator;
 }
+
+export function addResult(screen) {
+    const result = calculate(screen.operand1Node.textContent, screen.operand2Node.textContent, screen.operatorNode.textContent);
+    screen.resultNode.textContent = result;
+}
+
 
 export function getScreenElements(calculator) {
     const screenNode = calculator.querySelector('.screen');
