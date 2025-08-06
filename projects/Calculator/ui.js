@@ -1,6 +1,9 @@
+import { validateNumber, validateOperator } from './logic.js';
+
+
 function createAddButton() {
     const button = document.createElement('button');
-    button.classList.add('addButton');
+    button.classList.add('addButton', 'operatorButton');
     button.textContent = '+';
 
     return button;
@@ -8,7 +11,7 @@ function createAddButton() {
 
 function createSubstractButton() {
     const button = document.createElement('button');
-    button.classList.add('substractButton');
+    button.classList.add('substractButton', 'operatorButton');
     button.textContent = '-';
 
     return button;
@@ -16,7 +19,7 @@ function createSubstractButton() {
 
 function createMultiplyButton() {
     const button = document.createElement('button');
-    button.classList.add('multiplyButton');
+    button.classList.add('multiplyButton', 'operatorButton');
     button.textContent = '*';
 
     return button;
@@ -24,7 +27,7 @@ function createMultiplyButton() {
 
 function createDivideButton() {
     const button = document.createElement('button');
-    button.classList.add('divideButton');
+    button.classList.add('divideButton', 'operatorButton');
     button.textContent = '/';
 
     return button;
@@ -110,14 +113,44 @@ export function createScreen() {
     return screen;
 }
 
-export function addNumber(container, event) {
+export function createCalculator(container) {
+    const calculatorContainer = container.createElement('div');
+    const buttons = createButtons();
+    const screen = createScreen();
+
+    calculatorContainer.classList.add('calculator');
+
+    calculatorContainer.appendChild(screen);
+    calculatorContainer.appendChild(buttons);
+
+    return calculatorContainer;
+}
+
+export function addNumber(screen, event) {
     const number = event.target.textContent;
 
     if (!validateNumber(number)) return 'ERROR';
 
-    if (!operator.textContent) {
-        operand1.textContent += number;
+    if (!screen.operatorNode.textContent) {
+        screen.operand1Node.textContent += number;
     } else {
-        operand2.textContent += number;
+        screen.operand2Node.textContent += number;
     }
+}
+
+export function addOperator(screen, event) {
+    const operator = event.target.textContent;
+    if (!validateOperator(operator)) return 'ERROR';
+    screen.operatorNode.textContent = operator;
+}
+
+export function getScreenElements(calculator) {
+    const screenNode = calculator.querySelector('.screen');
+    const screen = {
+        operatorNode: screenNode.querySelector('.operator'),
+        operand1Node: screenNode.querySelector('.operand1'),
+        operand2Node: screenNode.querySelector('.operand2'),
+        resultNode: screenNode.querySelector('.result'),
+    }
+    return screen;
 }
