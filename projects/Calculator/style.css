@@ -7,7 +7,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #91A3B0;
+    background-color: #2C2C2C;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -18,7 +18,7 @@ body {
     justify-content: center;
     width: 300px;
     height: 400px;
-    border: 1px solid white;
+    border: 5px solid #010B13;
     border-radius: 10px;
     color: white;
 }
@@ -65,4 +65,18 @@ button {
     font-size: 25px;
     border: 2px solid black;
     border-radius: 3px;
+}
+
+/* SCREEN */
+
+.screen {
+    background-color: #1B1B1B;
+    border: 5px solid #010B13;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 35px;
+    flex-shrink: 0;
 }
