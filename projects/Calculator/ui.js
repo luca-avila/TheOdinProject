@@ -35,7 +35,7 @@ function createDivideButton() {
 
 function createEqualButton() {
     const button = document.createElement('button');
-    button.classList.add('equalButton');
+    button.classList.add('equalButton', 'operatorButton');
     button.textContent = '=';
 
     return button;
@@ -88,6 +88,8 @@ export function createButtons() {
 
     div.appendChild(numsDiv);
     div.appendChild(operatorsDiv);
+    numsDiv.appendChild(createClearButton());
+    numsDiv.appendChild(createDeleteButton());
 
     return div;
 }
@@ -115,16 +117,12 @@ export function createScreen() {
 
 export function createCalculator(container) {
     const calculatorContainer = container.createElement('div');
-    const clearButton = createClearButton();
-    const deleteButton = createDeleteButton();
     const buttons = createButtons();
     const screen = createScreen();
 
     calculatorContainer.classList.add('calculator');
 
     calculatorContainer.appendChild(screen);
-    calculatorContainer.appendChild(clearButton);
-    calculatorContainer.appendChild(deleteButton);
     calculatorContainer.appendChild(buttons);
 
     return calculatorContainer;
