@@ -127,6 +127,7 @@ export function createCalculator(container) {
 }
 
 export function addNumber(screen, event) {
+    screen.resultNode.textContent = '';
     const number = event.target.textContent;
 
     if (!validateNumber(number)) return 'ERROR';
@@ -139,14 +140,23 @@ export function addNumber(screen, event) {
 }
 
 export function addOperator(screen, event) {
+    if (!screen.operand1Node.textContent) return 'ERROR';
+    
     const operator = event.target.textContent;
     if (!validateOperator(operator)) return 'ERROR';
     screen.operatorNode.textContent = operator;
 }
 
 export function addResult(screen) {
+    if (!screen.operatorNode.textContent) return 'ERROR';
+    if (!screen.operand2Node.textContent) return 'ERROR';
+
     const result = calculate(screen.operand1Node.textContent, screen.operand2Node.textContent, screen.operatorNode.textContent);
     screen.resultNode.textContent = result;
+
+    screen.operand1Node.textContent = '';
+    screen.operand2Node.textContent = '';
+    screen.operatorNode.textContent = '';
 }
 
 

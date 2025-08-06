@@ -8,15 +8,16 @@ const numbers = calculator.querySelectorAll('.numberButton');
 const operators = calculator.querySelectorAll('.operatorButton');
 const equalButton = calculator.querySelector('.equalButton');
 
-numbers.forEach(number => {
-    number.addEventListener('click', (event) => addNumber(screen, event));
-});
+setupListeners();
 
-operators.forEach(operator => {
-    operator.addEventListener('click', (event) => addOperator(screen, event));
-});
+function setupListeners() {
+    numbers.forEach(number => {
+        number.addEventListener('click', (event) => addNumber(screen, event));
+    });
 
-equalButton.addEventListener('click', () => addResult(screen));
+    operators.forEach(operator => {
+        operator.addEventListener('click', (event) => addOperator(screen, event));
+    });
 
-
-
+    equalButton.addEventListener('click', () => addResult(screen));
+}
