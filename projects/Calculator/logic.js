@@ -16,7 +16,7 @@ function divide(n1, n2) {
 
 export function calculate(n1, n2, operator) {
     if (!validateInput(n1, n2, operator)) return 'ERROR';
-    
+
     n1 = Number(n1);
     n2 = Number(n2);
 

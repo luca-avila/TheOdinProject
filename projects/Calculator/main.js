@@ -1,4 +1,5 @@
-import { getScreenElements, createCalculator, addNumber, addOperator, addResult } from './ui.js';
+import { getScreenElements, createCalculator, addNumber, addOperator, addResult, clearScreen, deleteFromScreen } from './ui.js';
+
 
 const calculator = createCalculator(document);
 document.body.appendChild(calculator);
@@ -7,6 +8,8 @@ const screen = getScreenElements(calculator);
 const numbers = calculator.querySelectorAll('.numberButton');
 const operators = calculator.querySelectorAll('.operatorButton');
 const equalButton = calculator.querySelector('.equalButton');
+const clearButton = calculator.querySelector('.clearButton');
+const deleteButton = calculator.querySelector('.deleteButton');
 
 setupListeners();
 
@@ -20,4 +23,8 @@ function setupListeners() {
     });
 
     equalButton.addEventListener('click', () => addResult(screen));
+
+    clearButton.addEventListener('click', () => clearScreen(screen));
+
+    deleteButton.addEventListener('click', () => deleteFromScreen(screen));
 }

@@ -49,7 +49,7 @@ function createNumberButton(number) {
     return button;
 }
 
-function createClearButton() {
+export function createClearButton() {
     const button = document.createElement('button');
     button.classList.add('clearButton');
     button.textContent = 'C';
@@ -115,12 +115,16 @@ export function createScreen() {
 
 export function createCalculator(container) {
     const calculatorContainer = container.createElement('div');
+    const clearButton = createClearButton();
+    const deleteButton = createDeleteButton();
     const buttons = createButtons();
     const screen = createScreen();
 
     calculatorContainer.classList.add('calculator');
 
     calculatorContainer.appendChild(screen);
+    calculatorContainer.appendChild(clearButton);
+    calculatorContainer.appendChild(deleteButton);
     calculatorContainer.appendChild(buttons);
 
     return calculatorContainer;
@@ -169,4 +173,26 @@ export function getScreenElements(calculator) {
         resultNode: screenNode.querySelector('.result'),
     }
     return screen;
+}
+
+export function clearScreen(screen) {
+    console.log('clearScreen called');
+    screen.operand1Node.textContent = '';
+    screen.operand2Node.textContent = '';
+    screen.operatorNode.textContent = '';
+    screen.resultNode.textContent = '';
+}
+
+export function deleteFromScreen(screen) {
+    if (!screen.operand1Node.textContent) return 'ERROR';
+    
+    if (screen.operatorNode.textContent && !screen.operand2Node.textContent) {
+        screen.operatorNode.textContent = '';
+    }
+    else if (screen.operatorNode.textContent && screen.operand2Node.textContent) {
+        screen.operand2Node.textContent = screen.operand2Node.textContent.slice(0, -1);
+    }
+    else {
+        screen.operand1Node.textContent = screen.operand1Node.textContent.slice(0, -1);
+    }
 }
